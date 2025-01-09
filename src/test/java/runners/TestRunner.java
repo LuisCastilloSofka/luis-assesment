@@ -9,7 +9,7 @@ import org.testng.annotations.DataProvider;
         glue = {"stepdefinitions", "hooks"},
         plugin = { "pretty"},
         monochrome = true,
-        tags = "@regression"
+        tags = "@login"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
     @Override

@@ -1,7 +1,6 @@
 package hooks;
 
 
-import io.cucumber.messages.types.Hook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,7 +15,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.slf4j.Logger;
-
+import utils.DriverManager;
 
 
 public class TestHooks {
@@ -85,6 +84,8 @@ public class TestHooks {
         driver.manage().deleteAllCookies();
         logger.info("Web driver initialized correctly for {}",browser);
 
+        DriverManager.setDriver(driver);
+
     }
 
     /**
@@ -108,4 +109,5 @@ public class TestHooks {
     public WebDriver getDriver() {
         return driver;
     }
+
 }

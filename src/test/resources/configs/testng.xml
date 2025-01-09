@@ -6,7 +6,7 @@
         <parameter name="browser" value="chrome" />
         <parameter name="headless" value="false" />
         <classes>
-            <class name="com.qa.automation.tests.LoginTest" />
+            <class name="runners.TestRunner" />
         </classes>
     </test>
 
@@ -15,7 +15,7 @@
         <parameter name="browser" value="firefox" />
         <parameter name="headless" value="true" />
         <classes>
-            <class name="com.qa.automation.tests.LoginTest" />
+            <class name="runners.TestRunner" />
         </classes>
     </test>
 
@@ -24,7 +24,7 @@
         <parameter name="browser" value="edge" />
         <parameter name="headless" value="false" />
         <classes>
-            <class name="com.qa.automation.tests.LoginTest" />
+            <class name="runners.TestRunner" />
 
         </classes>
     </test>
