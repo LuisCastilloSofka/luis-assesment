@@ -19,6 +19,8 @@
         <allure-testng.version>2.21.0</allure-testng.version>
         <webdrivermanager.version>5.5.1</webdrivermanager.version>
         <lombok.version>1.18.24</lombok.version>
+        <slf4j.version>2.0.9</slf4j.version>
+        <logback.version>1.4.11</logback.version>
 
     </properties>
 
@@ -70,6 +72,22 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- SLF4J API -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- Logback (Implementación para SLF4J) -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+
 
     </dependencies>
 
