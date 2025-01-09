@@ -53,4 +53,11 @@ public class BasePage{
         return false;
     }
 
+    public boolean verifyVisibleText(By locator,String textToCompare){
+        explicitWait(locator);
+        logger.info(textToCompare);
+        logger.info("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+ Find(locator).getText());
+        return Find(locator).getText().equals(textToCompare);
+    }
+
 }

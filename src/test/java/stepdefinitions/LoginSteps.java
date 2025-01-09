@@ -30,4 +30,14 @@ public class LoginSteps {
         Assert.assertTrue(loginPage.isRedirectedToInventoryPage(),"User was not redirected to the products page.");
     }
 
+    @Given("^User try to login with (.*) and password (.*)$")
+    public void userTryToLoginWithInvalidCredentials(String username,String password){
+        loginPage.loginWithUserAndPassword(username,password);
+
+        }
+    @Then("^Access is expected to be denied with (.*)$")
+    public void verifyAccesIsDenied(String reason){
+        Assert.assertTrue(loginPage.verifyAccessIsDenied(reason));
+    }
+
 }
