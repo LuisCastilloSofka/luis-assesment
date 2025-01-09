@@ -3,28 +3,31 @@ package stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import pages.LoginPage;
-import utils.DriverManager;
+
 
 public class LoginSteps {
 
-    private WebDriver driver = DriverManager.getDriver();
+    private LoginPage loginPage;
 
-    private LoginPage loginPage = new LoginPage(driver);
+    public LoginSteps(){
+        this.loginPage = new LoginPage();
+    }
 
     @Given("User navigates to the login page")
-    public void userNavigatesToTheLoginPage(){
+    public void userNavigatesToTheLoginPage() throws InterruptedException {
+        loginPage.navigateToLoginPage();
     }
 
     @When("The user login with username {string} and password {string}")
     public void theUserLoginWithUsernameAndPassword(String username,String password){
-
+        loginPage.loginWithUserAndPassword(username,password);
     }
 
     @Then("The user should be redirected to the products page")
     public void theuserShouldBeRedirectedToTheProductsPage(){
-
+        Assert.assertTrue(loginPage.isRedirectedToInventoryPage(),"User was not redirected to the products page.");
     }
 
 }

@@ -4,28 +4,8 @@
     <!-- Pruebas en Chrome -->
     <test name="Tests in Chrome">
         <parameter name="browser" value="chrome" />
-        <parameter name="headless" value="false" />
         <classes>
             <class name="runners.TestRunner" />
-        </classes>
-    </test>
-
-    <!-- Pruebas en Firefox -->
-    <test name="Tests in Firefox">
-        <parameter name="browser" value="firefox" />
-        <parameter name="headless" value="true" />
-        <classes>
-            <class name="runners.TestRunner" />
-        </classes>
-    </test>
-
-    <!-- Pruebas en Edge -->
-    <test name="Tests in Edge">
-        <parameter name="browser" value="edge" />
-        <parameter name="headless" value="false" />
-        <classes>
-            <class name="runners.TestRunner" />
-
         </classes>
     </test>
 

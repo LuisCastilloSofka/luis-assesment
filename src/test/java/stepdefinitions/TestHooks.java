@@ -1,6 +1,9 @@
-package hooks;
+package stepdefinitions;
 
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,47 +13,39 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.LoggerFactory;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.slf4j.Logger;
+import pages.BasePage;
+
+import runners.TestRunner;
 import utils.DriverManager;
+
+import java.time.Duration;
 
 
 public class TestHooks {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestHooks.class);
-
-    protected WebDriver driver;
+    public static final Logger logger = LoggerFactory.getLogger(TestHooks.class);
+    public static WebDriver driver;
     public static WebDriverWait wait;
+    private BasePage basePage;
 
 
-    /**
-     * Initial Config: Run before every test suite.
-     * Allow to select browser from TestNG parameters.
-     *
-     * @param browser Browser type: chrome, firefox, edge
-     */
-    @BeforeClass
-    @Parameters({"browser","headless"})
-    public void setDriver(String browser, boolean headless){
-
+    @Before
+    public void setupDriver(Scenario scenario){
+        String browser = TestRunner.BROWSER.get();
         if(browser == null){
             throw new IllegalArgumentException("The parameter 'browser' can't be null");
         }
-
-        logger.info("Starting WebDriver on the browser: {} (Headless: {})",browser,headless);
+        logger.info("Starting WebDriver on the browser: {}",browser);
 
         switch (browser.toLowerCase()){
             case "chrome":
                 logger.debug("Setting up ChromeDriver...");
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
-                if (headless){
-                    chromeOptions.addArguments("--headless");
+                    //chromeOptions.addArguments("--headless");
                     chromeOptions.addArguments("--disable-gpu");
-                }
                 driver = new ChromeDriver(chromeOptions);
                 break;
 
@@ -58,9 +53,8 @@ public class TestHooks {
                 logger.debug("Setting up FirefoxDriver...");
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                if (headless){
-                    firefoxOptions.addArguments("--headless");
-                }
+                firefoxOptions.addArguments("--headless");
+
                 driver = new FirefoxDriver(firefoxOptions);
                 break;
 
@@ -68,9 +62,7 @@ public class TestHooks {
                 logger.debug("Setting up EdgeDriver...");
                 WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
-                if (headless){
                     edgeOptions.addArguments("--headless");
-                }
                 driver = new EdgeDriver();
                 break;
 
@@ -83,8 +75,10 @@ public class TestHooks {
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         logger.info("Web driver initialized correctly for {}",browser);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         DriverManager.setDriver(driver);
+
 
     }
 
@@ -92,7 +86,7 @@ public class TestHooks {
      * Final Clean: Run after every test suite.
      * Close the browser and delete Webdriver instance.
      */
-    @AfterClass
+    @After
     public void tearDown(){
         if (driver != null){
             logger.info("Closing Webdriver...");
