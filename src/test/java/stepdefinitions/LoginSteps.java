@@ -40,4 +40,7 @@ public class LoginSteps {
         Assert.assertTrue(loginPage.verifyAccessIsDenied(reason));
     }
 
+    @Given("User is logged and is on the Products page of Sauce Labs application")
+    public void loginWithFixedUser(){loginPage.loginWithUserAndPassword("standard_user","secret_sauce");}
+
 }

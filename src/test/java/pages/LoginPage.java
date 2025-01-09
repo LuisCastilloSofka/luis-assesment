@@ -1,12 +1,11 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 import pageobjects.LoginPageObject;
+import pageobjects.ProductsPageObject;
 
 public class LoginPage extends BasePage{
 
-    private WebDriver driver;
 
    public LoginPage(){
     super();
@@ -17,8 +16,9 @@ public class LoginPage extends BasePage{
        write(LoginPageObject.USERNAME_INPUT,username);
        write(LoginPageObject.PASSWORD_INPUT,password);
        click(LoginPageObject.LOGIN_BUTTON);
-
+       explicitWait(ProductsPageObject.PRODUCTS_TITLE);
    }
+
 
    public boolean isRedirectedToInventoryPage(){
        return isRedirected("inventory");

@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -55,9 +56,18 @@ public class BasePage{
 
     public boolean verifyVisibleText(By locator,String textToCompare){
         explicitWait(locator);
-        logger.info(textToCompare);
-        logger.info("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+ Find(locator).getText());
+        logger.info("holaaaaaaaaaaaaaaaaaaaaaaaaaa"+Find(locator).getText());
+        logger.info("holoooooooooooooooooooooooooo"+textToCompare);
         return Find(locator).getText().equals(textToCompare);
+    }
+
+    public boolean verifyProductbyXpathIsNotInTheCart(String product){
+        try {
+            WebElement productInTheCart = driver.findElement(By.xpath("//div[@class='inventory_item_name' and text()='" + product + "']"));
+            return !productInTheCart.isDisplayed();
+        } catch (NoSuchElementException e){
+            return true;
+        }
     }
 
 }
