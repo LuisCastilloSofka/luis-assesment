@@ -9,10 +9,11 @@ Feature: Product inventory functionality for Sauce Labs application
     When User adds the product "Sauce Labs Onesie" to the cart
     Then The product "Sauce Labs Onesie" should be displayed in the cart
 
+  @detail
   Scenario: Remove a product from the cart
     When User adds the product "Sauce Labs Backpack" to the cart
-    And User removes the product "Sauce Labs Backpack" from the cart
-    Then The product "Sauce Labs Backpack" should not be displayed in the cart
+    And User removes the product "Sauce Labs Backpack" from the product page
+    Then The cart icon should not display the count of removed items
 
   Scenario Outline:
     When User sorts products by <sort_option>
@@ -24,7 +25,7 @@ Feature: Product inventory functionality for Sauce Labs application
       |Name (Z to A)       |alphabetically|descending|
       |Price (high to low) |price         |descending|
       |Price (low to high) |price         |ascending |
-  @detail
+
   Scenario Outline: Navigate to product detail page
     When User clicks on the product <element> for "<productName>"
     Then The product detail page for "<productName>" should be displayed
@@ -35,3 +36,8 @@ Feature: Product inventory functionality for Sauce Labs application
     |image  |Sauce Labs Bike Light   |
     |name   |Sauce Labs Fleece Jacket|
     |image  |Sauce Labs Fleece Jacket|
+
+  Scenario: Remove a product from the your cart page
+    When User adds the product "Sauce Labs Backpack" to the cart
+    And User removes the product "Sauce Labs Backpack" from the cart in detail page
+    Then The product "Sauce Labs Backpack" should not be displayed in the cart

@@ -18,4 +18,6 @@ public class ProductsPageObject {
     public static final By.ById SAUCE_LABS_BIKE_LIGHT_IMAGE = new By.ById("item_0_img_link");
     public static final By.ById SAUCE_LABS_FLEECE_JACKET_IMAGE = new By.ById("item_5_img_link");
     public static final By.ByCssSelector DETAIL_PAGE_TITLE = new By.ByCssSelector(".inventory_details_name");
+    public static final By.ById REMOVE_CART_ITEM_PRODUCT_PAGE = new By.ById("remove-sauce-labs-backpack");
+    public static final By.ByClassName CART_ICON_BADGE = new By.ByClassName("shopping_cart_badge");
 }

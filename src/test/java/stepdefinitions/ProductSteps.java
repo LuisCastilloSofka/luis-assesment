@@ -24,7 +24,7 @@ public class ProductSteps {
         Assert.assertTrue(productsPage.verifyProductIsInTheCart(product));
     }
 
-    @And("User removes the product {string} from the cart")
+    @And("User removes the product {string} from the cart in detail page")
     public void userRemovesTheProductFromTheCart(String product){
         productsPage.removesProductFromTheCart(product);
     }
@@ -53,6 +53,16 @@ public class ProductSteps {
     @Then("The product detail page for {string} should be displayed")
     public void theProductDetailPageShouldBeDisplayed(String productName){
         Assert.assertTrue(productsPage.verifyProductDetailPageisDisplayed(productName));
+    }
+
+    @And("User removes the product {string} from the product page")
+    public void userRemovesTheProductFromTheCartFromTheProductPage(String product) {
+        productsPage.removesProductFromTheCartProductPage(product);
+    }
+
+    @Then("The cart icon should not display the count of removed items")
+    public void theCartIconShouldNotDisplayTheCountOfRemovedItems(){
+        Assert.assertTrue(productsPage.isCartIconUpdatedAfterRemoval());
     }
 
 }

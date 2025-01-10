@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import pageobjects.LoginPageObject;
@@ -108,6 +109,21 @@ public class ProductsPage extends BasePage {
     public boolean verifyProductDetailPageisDisplayed(String productName){
         explicitWait(ProductsPageObject.DETAIL_PAGE_TITLE);
         return verifyVisibleText(ProductsPageObject.DETAIL_PAGE_TITLE,productName);
+    }
+
+    public void removesProductFromTheCartProductPage(String product) {
+        explicitWait(ProductsPageObject.REMOVE_CART_ITEM_PRODUCT_PAGE);
+        click(ProductsPageObject.REMOVE_CART_ITEM_PRODUCT_PAGE);
+    }
+
+    public boolean isCartIconUpdatedAfterRemoval(){
+        try {
+            WebElement cartBadge = driver.findElement(ProductsPageObject.CART_ICON_BADGE);
+            String cartCount = cartBadge.getText();
+            return Integer.parseInt(cartCount) == 0;
+        } catch (NoSuchElementException e){
+            return true;
+        }
     }
 
 }
