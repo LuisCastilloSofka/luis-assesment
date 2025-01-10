@@ -1,9 +1,11 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+import pageobjects.ProductsPageObject;
 import pages.ProductsPage;
 
 public class ProductSteps {
@@ -63,6 +65,15 @@ public class ProductSteps {
     @Then("The cart icon should not display the count of removed items")
     public void theCartIconShouldNotDisplayTheCountOfRemovedItems(){
         Assert.assertTrue(productsPage.isCartIconUpdatedAfterRemoval());
+    }
+
+    @Given("User is on the checkout page")
+    public void userIsOnTheCheckoutPage()  {
+        productsPage.AddProductToTheCart("Sauce Labs Bolt T-Shirt");
+        productsPage.click(ProductsPageObject.CART_ICON_LINK);
+        productsPage.explicitWait(ProductsPageObject.PRODUCTS_TITLE);
+        productsPage.clickOnButtonByName("Checkout");
+
     }
 
 }

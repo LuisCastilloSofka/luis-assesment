@@ -9,7 +9,7 @@ import org.testng.annotations.Parameters;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"stepdefinitions"},
-        tags = "@detail"
+        tags = "@checkout"
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {

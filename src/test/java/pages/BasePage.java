@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageobjects.CheckoutPageObject;
 import pageobjects.ProductsPageObject;
 import stepdefinitions.TestHooks;
 import org.slf4j.Logger;
@@ -97,6 +98,22 @@ public class BasePage{
                 break;
         }
     }
+
+    public void clickOnButtonByName(String buttonName) {
+        By element = null;
+        switch (buttonName){
+            case "Continue":
+                element = CheckoutPageObject.CONTINUE_BUTTON;
+                break;
+            case "Checkout":
+                element = CheckoutPageObject.CHECKOUT_BUTTON;
+                break;
+        }
+        explicitWait(element);
+        click(element);
+
+    }
+
 
 
 

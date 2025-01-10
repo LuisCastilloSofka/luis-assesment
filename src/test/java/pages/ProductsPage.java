@@ -26,6 +26,8 @@ public class ProductsPage extends BasePage {
             case "Sauce Labs Backpack":
                 click(ProductsPageObject.SAUCE_LABS_BACKPACK_PRODUCT_ADD_TO_CART_BUTTON);
                 break;
+            case "Sauce Labs Bolt T-Shirt":
+                click(ProductsPageObject.SAUCE_LABS_BOLT_TSHIRT_PRODUCT_ADD_TO_CART_BUTTON);
         }
     }
 
