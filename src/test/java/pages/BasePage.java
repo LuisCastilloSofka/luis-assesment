@@ -108,6 +108,9 @@ public class BasePage{
             case "Checkout":
                 element = CheckoutPageObject.CHECKOUT_BUTTON;
                 break;
+            case "Finish":
+                element =CheckoutPageObject.FINISH_BUTTON;
+                break;
         }
         click(element);
 

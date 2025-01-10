@@ -52,5 +52,21 @@ public class CheckoutSteps {
         Assert.assertTrue(checkoutPage.isItemTotalCorrect(expectedTotal));
     }
 
+    @Then("The order confirmation page should be displayed")
+    public void theOrderConfirmationPageShouldBeDisplayed() {
+        Assert.assertTrue(checkoutPage.isConfirmationPageDisplayed());
+    }
+
+    @Then("The message {string} should be shown")
+    public void theMessageShouldBeShown(String expectedMessage) {
+        Assert.assertTrue(checkoutPage.isMessageDisplayed(expectedMessage));
+
+    }
+
+
+
+
+
+
 
 }

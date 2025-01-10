@@ -25,6 +25,15 @@ Feature: Checkout functionality for Sauce Labs application
     And User proceeds to the Checkout : Overview Page
     Then The item total should be "$53.97"
 
+  Scenario:
+    Given User proceeds to the Checkout : Overview Page
+    When User clicks on the "Finish" button
+    Then The order confirmation page should be displayed
+    And The message "Thank you for your order!" should be shown
+
+
+
+
 
 
 

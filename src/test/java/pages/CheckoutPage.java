@@ -4,6 +4,7 @@ import io.cucumber.datatable.DataTable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pageobjects.CheckoutPageObject;
+import pageobjects.ProductsPageObject;
 
 import javax.xml.crypto.Data;
 import java.util.List;
@@ -58,6 +59,16 @@ public class CheckoutPage extends BasePage{
         WebElement totalElement = driver.findElement(CheckoutPageObject.ITEM_TOTAL);
         String actualTotal = totalElement.getText().replace("Item total: ","");
         return actualTotal.equals(expectedTotal);
+    }
+
+    public boolean isConfirmationPageDisplayed(){
+        WebElement header = driver.findElement(ProductsPageObject.PRODUCTS_TITLE);
+        return header.isDisplayed() && header.getText().equalsIgnoreCase("Checkout: Complete!");
+    }
+
+    public boolean isMessageDisplayed(String expectedMessage){
+        explicitWait(CheckoutPageObject.ORDER_CONFIRMATION);
+        return verifyVisibleText(CheckoutPageObject.ORDER_CONFIRMATION,expectedMessage);
     }
 
 }
