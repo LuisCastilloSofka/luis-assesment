@@ -9,7 +9,19 @@ Feature: Product inventory functionality for Sauce Labs application
     When User adds the product "Sauce Labs Onesie" to the cart
     Then The product "Sauce Labs Onesie" should be displayed in the cart
 
-    Scenario: Remove a product from the cart
-      When User adds the product "Sauce Labs Backpack" to the cart
-      And User removes the product "Sauce Labs Backpack" from the cart
-      Then The product "Sauce Labs Backpack" should not be displayed in the cart
+  Scenario: Remove a product from the cart
+    When User adds the product "Sauce Labs Backpack" to the cart
+    And User removes the product "Sauce Labs Backpack" from the cart
+    Then The product "Sauce Labs Backpack" should not be displayed in the cart
+
+  Scenario Outline:
+    When User sorts products by <sort_option>
+    Then The product should be sort by <sortType> in <order>
+
+    Examples:
+      |sort_option         |sortType      |order     |
+      |Name (A to Z)       |alphabetically|ascending |
+      |Name (Z to A)       |alphabetically|descending|
+      |Price (high to low) |price         |descending|
+      |Price (low to high) |price         |ascending |
+

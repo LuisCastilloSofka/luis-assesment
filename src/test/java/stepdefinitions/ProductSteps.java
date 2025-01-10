@@ -30,7 +30,20 @@ public class ProductSteps {
     }
 
     @Then("The product {string} should not be displayed in the cart")
-        public void theProductShouldNotBeDisplayedInTheCart(String product){
+    public void theProductShouldNotBeDisplayedInTheCart(String product){
         Assert.assertTrue(productsPage.verifyProductIsNotInTheCart(product));
     }
+
+    @When("^User sorts products by (.*)$")
+    public void UserSortsProductsBy(String sort){
+        productsPage.sortPrductsBy(sort);
+    }
+
+    @Then("The product should be sort by {word} in {word}")
+    public void theProductShouldBeSortByIn(String sortType,String order){
+        boolean ascending = order.equalsIgnoreCase("ascending");
+        Assert.assertTrue(productsPage.verifyProductsAreSorted(sortType,ascending));
+
+    }
+
 }

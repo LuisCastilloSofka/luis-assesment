@@ -70,4 +70,9 @@ public class BasePage{
         }
     }
 
+    public WebElement getWebElementByBy(By by){
+        return driver.findElement(by);
+
+    }
+
 }

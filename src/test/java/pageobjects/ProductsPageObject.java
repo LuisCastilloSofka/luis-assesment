@@ -10,4 +10,7 @@ public class ProductsPageObject {
     public static final By.ByCssSelector CART_ITEM = new By.ByCssSelector(".inventory_item_name");
     public static final By.ById SAUCE_LABS_ONESIE_PRODUCT_REMOVE_FROM_THE_CART_BUTTON = new By.ById("remove-sauce-labs-onesie");
     public static final By.ById SAUCE_LABS_BACKPACK_PRODUCT_REMOVE_FROM_THE_CART_BUTTON = new By.ById("remove-sauce-labs-backpack");
+    public static final By.ByCssSelector SORT_DROPDOWN = new By.ByCssSelector(".product_sort_container");
+    public static final By.ByClassName PRODUCT_NAMES = new By.ByClassName("inventory_item_name");
+    public static final By.ByClassName PRODUCT_PRICES = new By.ByClassName("inventory_item_price");
 }
