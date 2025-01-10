@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobjects.CheckoutPageObject;
+import pageobjects.LoginPageObject;
 import pageobjects.ProductsPageObject;
 import stepdefinitions.TestHooks;
 import org.slf4j.Logger;
@@ -114,6 +115,21 @@ public class BasePage{
         }
         click(element);
 
+    }
+
+    public void openMenu() {
+        explicitWait(LoginPageObject.MENU_BUTTON);
+        click(LoginPageObject.MENU_BUTTON);
+    }
+
+    public void clickLogout() {
+       explicitWait(LoginPageObject.LOGOUT_BUTTON);
+       click(LoginPageObject.LOGOUT_BUTTON);
+    }
+
+    public boolean isDisplayed(By locator){
+       explicitWait(locator);
+        return Find(locator).isDisplayed();
     }
 
 

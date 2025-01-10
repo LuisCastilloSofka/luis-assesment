@@ -5,11 +5,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.LoginPage;
+import pages.ProductsPage;
 
 
 public class LoginSteps {
 
     private LoginPage loginPage;
+
 
     public LoginSteps(){
         this.loginPage = new LoginPage();
@@ -42,5 +44,21 @@ public class LoginSteps {
 
     @Given("User is logged and is on the Products page of Sauce Labs application")
     public void loginWithFixedUser(){loginPage.loginWithUserAndPassword("standard_user","secret_sauce");}
+
+    @When("User clicks on the logout option in the menu")
+    public void userClicksOnTheLogoutOptionInTheMenu(){
+        loginPage.openMenu();
+        loginPage.clickLogout();
+    }
+    @Then("User should be redirected to the login page")
+    public void userShouldBeRedirectedToTheLoginPage(){
+        Assert.assertTrue(loginPage.isLoginPageDisplayed());
+    }
+    @Then("The login button should be visible")
+    public void theLoginButtonShouldBeVisible() {
+        Assert.assertTrue(loginPage.isLoginButtonVisible());
+    }
+
+
 
 }

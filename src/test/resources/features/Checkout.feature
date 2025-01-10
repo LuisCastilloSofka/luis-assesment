@@ -1,4 +1,4 @@
-@checkout
+@checkout @regression
 Feature: Checkout functionality for Sauce Labs application
 
   Background:

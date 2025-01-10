@@ -16,7 +16,6 @@ public class LoginPage extends BasePage{
        write(LoginPageObject.USERNAME_INPUT,username);
        write(LoginPageObject.PASSWORD_INPUT,password);
        click(LoginPageObject.LOGIN_BUTTON);
-       explicitWait(ProductsPageObject.PRODUCTS_TITLE);
    }
 
 
@@ -43,6 +42,15 @@ public class LoginPage extends BasePage{
        }
        return false;
    }
+
+    public boolean isLoginPageDisplayed() {
+       return isDisplayed(LoginPageObject.LOGIN_LOGO);
+    }
+
+    public boolean isLoginButtonVisible() {
+        return isDisplayed(LoginPageObject.LOGIN_BUTTON);
+    }
+
 
 
 

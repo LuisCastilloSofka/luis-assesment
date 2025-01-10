@@ -1,4 +1,4 @@
-@products
+@products @regression
 Feature: Product inventory functionality for Sauce Labs application
 
   Background:

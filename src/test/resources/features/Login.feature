@@ -1,4 +1,4 @@
-@login
+@login @regression
   Feature: Login functionality for Sauce Labs application
 
     Background:
@@ -20,3 +20,10 @@
         |standard_user    |            |password_missing   |
         |                 |secret_sauce|user_missing       |
         |                 |            |user_missing       |
+
+    @prueba
+    Scenario:
+      Given User is logged and is on the Products page of Sauce Labs application
+      When User clicks on the logout option in the menu
+      Then User should be redirected to the login page
+      And The login button should be visible

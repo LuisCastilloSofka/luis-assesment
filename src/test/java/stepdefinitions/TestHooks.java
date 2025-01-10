@@ -53,7 +53,7 @@ public class TestHooks {
                 logger.debug("Setting up FirefoxDriver...");
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("--headless");
+                //firefoxOptions.addArguments("--headless");
 
                 driver = new FirefoxDriver(firefoxOptions);
                 break;
@@ -62,8 +62,8 @@ public class TestHooks {
                 logger.debug("Setting up EdgeDriver...");
                 WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
-                    edgeOptions.addArguments("--headless");
-                driver = new EdgeDriver();
+                    //edgeOptions.addArguments("--headless");
+                driver = new EdgeDriver(edgeOptions);
                 break;
 
             default:
