@@ -94,4 +94,20 @@ public class ProductsPage extends BasePage {
 
     }
 
+    public void clickOnTheProductElement(String element,String productName) {
+
+        if(element.equalsIgnoreCase("name")){
+            clickProductName(productName);
+        } else if(element.equalsIgnoreCase("image")){
+            clickProductImage(productName);
+        } else{
+            throw new IllegalArgumentException("Invalid element type" + element);
+        }
+    }
+
+    public boolean verifyProductDetailPageisDisplayed(String productName){
+        explicitWait(ProductsPageObject.DETAIL_PAGE_TITLE);
+        return verifyVisibleText(ProductsPageObject.DETAIL_PAGE_TITLE,productName);
+    }
+
 }

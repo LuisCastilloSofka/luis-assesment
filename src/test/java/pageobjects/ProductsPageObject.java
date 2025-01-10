@@ -13,4 +13,9 @@ public class ProductsPageObject {
     public static final By.ByCssSelector SORT_DROPDOWN = new By.ByCssSelector(".product_sort_container");
     public static final By.ByClassName PRODUCT_NAMES = new By.ByClassName("inventory_item_name");
     public static final By.ByClassName PRODUCT_PRICES = new By.ByClassName("inventory_item_price");
+    public static final By.ByCssSelector SAUCE_LABS_BIKE_LIGHT_NAME = new By.ByCssSelector("#item_0_title_link > div");
+    public static final By.ByCssSelector SAUCE_LABS_FLEECE_JACKET_NAME = new By.ByCssSelector("#item_5_title_link > div");
+    public static final By.ById SAUCE_LABS_BIKE_LIGHT_IMAGE = new By.ById("item_0_img_link");
+    public static final By.ById SAUCE_LABS_FLEECE_JACKET_IMAGE = new By.ById("item_5_img_link");
+    public static final By.ByCssSelector DETAIL_PAGE_TITLE = new By.ByCssSelector(".inventory_details_name");
 }

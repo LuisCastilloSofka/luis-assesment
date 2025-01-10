@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageobjects.ProductsPageObject;
 import stepdefinitions.TestHooks;
 import org.slf4j.Logger;
 
@@ -56,8 +57,6 @@ public class BasePage{
 
     public boolean verifyVisibleText(By locator,String textToCompare){
         explicitWait(locator);
-        logger.info("holaaaaaaaaaaaaaaaaaaaaaaaaaa"+Find(locator).getText());
-        logger.info("holoooooooooooooooooooooooooo"+textToCompare);
         return Find(locator).getText().equals(textToCompare);
     }
 
@@ -74,5 +73,31 @@ public class BasePage{
         return driver.findElement(by);
 
     }
+
+    public void clickProductName(String productName){
+        switch (productName){
+            case "Sauce Labs Bike Light" :
+                click(ProductsPageObject.SAUCE_LABS_BIKE_LIGHT_NAME);
+                break;
+            case "Sauce Labs Fleece Jacket" :
+                click(ProductsPageObject.SAUCE_LABS_FLEECE_JACKET_NAME);
+                break;
+        }
+    }
+
+    public void clickProductImage(String productName){
+        switch (productName){
+            case "Sauce Labs Bike Light" :
+                explicitWait(ProductsPageObject.SAUCE_LABS_BIKE_LIGHT_IMAGE);
+                click(ProductsPageObject.SAUCE_LABS_BIKE_LIGHT_IMAGE);
+                break;
+            case "Sauce Labs Fleece Jacket" :
+                explicitWait(ProductsPageObject.SAUCE_LABS_FLEECE_JACKET_IMAGE);
+                click(ProductsPageObject.SAUCE_LABS_FLEECE_JACKET_IMAGE);
+                break;
+        }
+    }
+
+
 
 }

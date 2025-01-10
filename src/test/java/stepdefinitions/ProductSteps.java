@@ -43,7 +43,16 @@ public class ProductSteps {
     public void theProductShouldBeSortByIn(String sortType,String order){
         boolean ascending = order.equalsIgnoreCase("ascending");
         Assert.assertTrue(productsPage.verifyProductsAreSorted(sortType,ascending));
+    }
 
+    @When("User clicks on the product {word} for {string}")
+    public void userClicksOnTheProductElement(String element,String productName)  {
+        productsPage.clickOnTheProductElement(element,productName);
+    }
+
+    @Then("The product detail page for {string} should be displayed")
+    public void theProductDetailPageShouldBeDisplayed(String productName){
+        Assert.assertTrue(productsPage.verifyProductDetailPageisDisplayed(productName));
     }
 
 }

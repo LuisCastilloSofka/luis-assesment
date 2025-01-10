@@ -24,4 +24,14 @@ Feature: Product inventory functionality for Sauce Labs application
       |Name (Z to A)       |alphabetically|descending|
       |Price (high to low) |price         |descending|
       |Price (low to high) |price         |ascending |
+  @detail
+  Scenario Outline: Navigate to product detail page
+    When User clicks on the product <element> for "<productName>"
+    Then The product detail page for "<productName>" should be displayed
 
+    Examples:
+    |element|productName             |
+    |name   |Sauce Labs Bike Light   |
+    |image  |Sauce Labs Bike Light   |
+    |name   |Sauce Labs Fleece Jacket|
+    |image  |Sauce Labs Fleece Jacket|
