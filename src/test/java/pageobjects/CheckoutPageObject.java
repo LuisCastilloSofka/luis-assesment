@@ -10,4 +10,5 @@ public class CheckoutPageObject {
     public static final By.ById FIRST_NAME_INPUT = new By.ById("first-name");
     public static final By.ById LAST_NAME_INPUT = new By.ById("last-name");
     public static final By.ById POSTAL_CODE_INPUT = new By.ById("postal-code");
+    public static final By.ByClassName ITEM_TOTAL = new By.ByClassName("summary_subtotal_label");
 }

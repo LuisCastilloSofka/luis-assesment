@@ -109,7 +109,6 @@ public class BasePage{
                 element = CheckoutPageObject.CHECKOUT_BUTTON;
                 break;
         }
-        explicitWait(element);
         click(element);
 
     }
