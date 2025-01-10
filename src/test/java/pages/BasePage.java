@@ -11,11 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobjects.CheckoutPageObject;
 import pageobjects.LoginPageObject;
 import pageobjects.ProductsPageObject;
-import stepdefinitions.TestHooks;
+import hooks.TestHooks;
 import org.slf4j.Logger;
-
-
-import java.time.Duration;
 
 public class BasePage{
 

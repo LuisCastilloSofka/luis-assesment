@@ -8,7 +8,7 @@ import org.testng.annotations.Parameters;
 
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = {"stepdefinitions"},
+        glue = {"stepdefinitions","hooks"},
         tags = "@regression"
 )
 
